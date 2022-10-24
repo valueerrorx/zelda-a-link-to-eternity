@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8"/>
+    <script src="phaser.min.js"></script>
+    <style>
+        #container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border: 0px solid black;
+            width: 800px;
+            height:480px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.5 );
+            padding: 10px;
+            margin-left: -400px;
+            margin-top: -240px;
+            text-align: center;
+        }
+    </style>
+  </head>
+  <body>
+  
+<div id='container'></div>
+
+
+<script>
+
+
+// hier wird die spielweite konfiguration vorgenommen
+let phaserconfig = {
+    type: Phaser.Auto,
+    width: 800,   //definiert die breite des viewports
+    height: 480,
+    parent: "container",
+    backgroundColor: '#eeeeee',
+    physics: {
+        default: 'matter',
+        matter: {
+            gravity: { y : 0 },
+            debug: true   // macht die hitboxen sichtbar/unsichtbar
+        }
+    }
+}
+
+
+
+// globale variablen defineren
+let link;
+let cursors;
+let camera;
+let fog;
+
+class Level1 {
+    
+    preload(){
+        this.load.image('spider', 'assets/spider.png');
+        this.load.image('fog', 'assets/fog.png');
+        this.load.image('tree', 'assets/tree.png');
+        this.load.spritesheet('link', 'assets/zeldawalk.png', { frameWidth: 120, frameHeight: 130});
+        
+        this.load.tilemapTiledJSON(1, 'assets/map2.json');
+        this.load.image('tileset', 'assets/tileset.png');
+    }
+    create(){
+       
+        let map = this.make.tilemap({ key: 1 });
+       
+        let tiles = map.addTilesetImage('tileset');
+        let floor0 = map.createLayer('floor0', tiles, 0, 0);
+        let floor1 = map.createLayer('floor1', tiles, 0, 0);
+        let floor2 = map.createLayer('floor2', tiles, 0, 0);
+        let floor3 = map.createLayer('floor3', tiles, 0, 0);
+        
+        let walls = map.getObjectLayer("walls");
+        
+        let points = []
+        
+        console.log(walls)
+        
+        walls.objects.forEach( wall => {
+            if (wall.ellipse === true){
+                let wallobject = this.matter.add.circle(wall.x+wall.width/2, wall.y+wall.height/2, wall.width/2); 
+                wallobject.isStatic = true
+            }
+            else {
+                if(wall.name == "enemy1"){
+                    for (let i = 0; i< wall.polygon.length; i++){
+                        points.push( wall.x + wall.polygon[i].x)
+                        points.push( wall.y + wall.polygon[i].y)
+                    }
+                }
+                else {
+                    let polygon = this.add.polygon(wall.x, wall.y, wall.polygon);
+                    let wallobject = this.matter.add.gameObject( polygon, { shape:{ type:'fromVerts', verts: wall.polygon  } })
+                    wallobject.setPosition(wallobject.x + wallobject.body.centerOffset.x,  wallobject.y + wallobject.body.centerOffset.y )
+                    wallobject.setStatic(true)
+                }
+            }
+        })
+        
+// console.log(wall)
+//
+// height: 0
+// id: 47
+// name: "enemy1"
+// polygon: Array(9)
+//         0: {x: 0, y: 0}
+//         1: {x: 60, y: -84}
+//         2: {x: 180, y: -51}
+//         3: {x: 222, y: -129}
+//         4: {x: 426, y: -42}
+//         5: {x: 366, y: 105}
+//         6: {x: 213, y: 39}
+//         7: {x: 84, y: -3}
+//         8: {x: 30, y: 36}
+// length: 9
+// rotation: 0
+// type: ""
+// visible: true
+// width: 0
+// x: 510
+// y: 633
+        
+// let points = [ 50, 400, 200, 200, 350, 300, 500, 500, 700, 400 ];   // [ x1, y1, x2 , y2 , x3, y3 ]
+
+        try {
+            let curve = new Phaser.Curves.Spline(points);
+            let graphics = this.add.graphics();
+            graphics.lineStyle(1, 0xffffff, 1);
+            graphics.setDepth(25)
+            curve.draw(graphics, 64);
+        
+            let spider = this.add.follower(curve, points[0], points[1], 'spider');
+            spider.setDepth(25)
+        
+            spider.startFollow({
+                duration: 10000,
+                rotateToPath: true,
+                repeat: -1
+            });
+
+        }
+        catch (e) {console.log(e)}
+     
+    
+    
+    
+    
+        this.matter.world.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
+        this.anims.create({ key: 'walktowards', frames: this.anims.generateFrameNumbers('link', { start:0, end:9 }),frameRate: 14  });
+        this.anims.create({ key: 'walkaway', frames: this.anims.generateFrameNumbers('link', { start:20, end:29 }),frameRate: 14 });
+        this.anims.create({ key: 'walkleft', frames: this.anims.generateFrameNumbers('link', { start:10, end:19 }),frameRate: 14 });
+        
+        
+        link = this.matter.add.sprite(400, 640, 'link');
+        link.setScale(0.2);
+        link.setCircle(12);
+        link.setFixedRotation(true);
+       
+        link.setDepth(25);
+        floor0.setDepth(1);
+        floor1.setDepth(20);
+        floor2.setDepth(40);
+        floor3.setDepth(60);
+        
+   
+        let tree = this.matter.add.sprite(300,220,'tree');
+        tree.setStatic(true);
+   
+   
+        cursors = this.input.keyboard.createCursorKeys();
+        
+        camera = this.cameras.main;
+        camera.setBounds(0,0, map.widthInPixels, map.heightInPixels)
+        camera.startFollow(link, true, 0.05, 0.05)
+        
+        fog = this.add.tileSprite(0, 0, map.widthInPixels, map.heightInPixels, 'fog').setOrigin(0,0);
+        fog.setDepth(100);
+    }
+    update(){
+        
+        if (cursors.left.isDown)    {  
+            link.setVelocityX(-3);
+            link.setFlipX(false);
+        }
+        else if (cursors.right.isDown)  {
+            link.setVelocityX(3);
+            link.setFlipX(true);
+        }
+        else  { link.setVelocityX(0);  }
+        
+        if (cursors.up.isDown)  {link.setVelocityY(-3);}
+        else if (cursors.down.isDown )  { link.setVelocityY(3);}
+        else  { link.setVelocityY(0); }
+        
+        // handle animations separately
+        if (cursors.left.isDown || cursors.right.isDown)    {  link.anims.play('walkleft', true);}        
+        else if (cursors.down.isDown )  {link.anims.play('walktowards', true);}
+        else if (cursors.up.isDown)  {link.anims.play('walkaway', true);}
+        else {link.anims.stop();}
+        
+        
+        fog.x = camera.scrollX*0.2;
+        fog.y = camera.scrollY*0.2;
+        
+    }
+}
+
+
+
+
+
+
+
+
+
+
+let game = new Phaser.Game(phaserconfig);
+game.scene.add('1', Level1);
+game.scene.start('1');
+
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
