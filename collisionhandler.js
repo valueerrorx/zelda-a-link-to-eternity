@@ -1,12 +1,9 @@
-
-
 import { config } from "./config.js"
 
-
 function checkCollisions(game){
+
     game.matter.world.on("collisionstart", (event, bodyA, bodyB) => {
-
-
+        
         // handle different mapswitch actions
         if((bodyA.type == "mapswitch" && bodyB.name == "link") || (bodyB.type == "mapswitch" && bodyA.name == "link")) {
             let mapswitch = bodyA.type === "mapswitch" ?  bodyA : bodyB 
@@ -26,10 +23,12 @@ function checkCollisions(game){
             game.scene.start(mapswitch.name);
     
         }
-
-
-
     });
+
+
+
+
+
 }
 
 

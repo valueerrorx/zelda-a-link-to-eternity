@@ -26,7 +26,6 @@ function createMap(mapkey, game) {
         console.log(error)
     }
 
-
     let walls = config.map.getObjectLayer("walls");
 
     let points = []
@@ -34,6 +33,8 @@ function createMap(mapkey, game) {
  
     walls.objects.forEach( wall => {
         if (wall.ellipse === true){
+
+            
             if (wall.type === "mapswitch"){
                 console.log(wall.name)
                 let wallobject = game.matter.add.circle(wall.x+wall.width/2, wall.y+wall.height/2, wall.width/2);
