@@ -6,23 +6,46 @@ function checkCollisions(game){
         
         // handle different mapswitch actions
         if((bodyA.type == "mapswitch" && bodyB.name == "link") || (bodyB.type == "mapswitch" && bodyA.name == "link")) {
-            let mapswitch = bodyA.type === "mapswitch" ?  bodyA : bodyB 
            
-            //reposition link
-            let x = config.link.x
-            let y = config.link.y
+            let linkx = config.link.x
+            let linky = config.link.y
+           
+            if(linky <= 40 ){ 
+                config.linkstatus.y = config.map.heightInPixels - 25 
+                config.linkstatus.x =  linkx
+            }
+            else if (linky > config.map.heightInPixels - 40) {
+                config.linkstatus.y = 25 
+                config.linkstatus.x = linkx
+            }
+            else if (linkx < 40) {
+                config.linkstatus.x = config.map.widthInPixels - 25 
+                config.linkstatus.y =  linky
 
-            if (config.link.x < 50) { x = config.map.widthInPixels - 40}        //link geht links raus
-            if (config.link.x > config.map.widthInPixels - 50 )  { x = 40 }     // link geht rechts raus
-            if (config.link.y < 50) { y =  config.map.heightInPixels - 40 }     // link geht oben raus
-            if (config.link.y > config.map.heightInPixels - 50) { y = 40 }      // link geht unten raus
+            }
+            else if ( linkx > config.map.widthInPixels - 40 ) {
+                config.linkstatus.x =  25 
+                config.linkstatus.y =  linky
+            }
+            else  {
+                config.linkstatus.x =  linkx
+                config.linkstatus.y =  linky
+            }
 
-            config.linkstatus= {oldmap: config.map, x: x, y:y}
-            
-            console.log(`Switching to map: ${mapswitch.name}`)
-            game.scene.start(mapswitch.name);
+
+            if (bodyA.type == "mapswitch"){
+                game.scene.start( bodyA.name )
+            }
+            if (bodyB.type == "mapswitch"){
+                game.scene.start( bodyB.name )
+            }
+         
+
+           
     
+
         }
+
     });
 
 

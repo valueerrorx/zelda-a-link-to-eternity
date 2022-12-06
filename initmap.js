@@ -38,6 +38,7 @@ function createMap(mapkey, game) {
             if (wall.type === "mapswitch"){
                 console.log(wall.name)
                 let wallobject = game.matter.add.circle(wall.x+wall.width/2, wall.y+wall.height/2, wall.width/2);
+               
                 wallobject.type = wall.type
                 wallobject.name = wall.name
                 wallobject.isStatic = true
