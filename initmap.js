@@ -1,4 +1,3 @@
-
 import { config } from "./config.js"
 
 function createMap(mapkey, game) {
@@ -30,11 +29,9 @@ function createMap(mapkey, game) {
 
     let points = []
 
- 
     walls.objects.forEach( wall => {
         if (wall.ellipse === true){
-
-            
+          
             if (wall.type === "mapswitch"){
                 console.log(wall.name)
                 let wallobject = game.matter.add.circle(wall.x+wall.width/2, wall.y+wall.height/2, wall.width/2);
@@ -47,8 +44,7 @@ function createMap(mapkey, game) {
                 let wallobject = game.matter.add.circle(wall.x+wall.width/2, wall.y+wall.height/2, wall.width/2);
                 wallobject.isStatic = true
             }
-          
-
+        
         }
         else {
             if(wall.name == "enemy1"){
@@ -109,15 +105,7 @@ function createMap(mapkey, game) {
 
     }
     catch (e) {console.log(e)}
-
-
-
-
-
-
-
-
+    
 }
-
 
 export {createMap}

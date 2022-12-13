@@ -1,6 +1,4 @@
- 
 import { config } from "./config.js"
-
 
 function createPlayer(game){
     game.anims.create({ key: 'walktowards', frames: game.anims.generateFrameNumbers('link', { start:0, end:9 }),frameRate: 14  });
@@ -16,10 +14,6 @@ function createPlayer(game){
     config.link.setDepth(25);
     config.link.body.name = "link"
    
-
 }
 
-
-
 export {createPlayer}
- 

@@ -36,5 +36,4 @@ function checkCollisions(game){
     });
 }
 
-
 export {checkCollisions}
