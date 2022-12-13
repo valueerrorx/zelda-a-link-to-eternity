@@ -39,19 +39,9 @@ function checkCollisions(game){
             if (bodyB.type == "mapswitch"){
                 game.scene.start( bodyB.name )
             }
-         
-
-           
-    
-
         }
 
     });
-
-
-
-
-
 }
 
 
