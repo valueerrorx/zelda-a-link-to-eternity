@@ -9,17 +9,34 @@ function createMap(mapkey, game) {
     let floor1;
     let floor2;
     let floor3;
+    let floor4;
+    let floor5;
+    let floor6;
+    let floor7;
+    let floor8;
 
     try {
         floor0 = config.map.createLayer('floor0', tiles, 0, 0);
         floor1 = config.map.createLayer('floor1', tiles, 0, 0);
         floor2 = config.map.createLayer('floor2', tiles, 0, 0);
         floor3 = config.map.createLayer('floor3', tiles, 0, 0);
+        floor4 = config.map.createLayer('floor4', tiles, 0, 0);
+        floor5 = config.map.createLayer('floor5', tiles, 0, 0);
+        floor6 = config.map.createLayer('floor6', tiles, 0, 0);
+        floor7 = config.map.createLayer('floor7', tiles, 0, 0);
+        floor8 = config.map.createLayer('floor8', tiles, 0, 0);
+
 
         floor0.setDepth(1);
         floor1.setDepth(20);
         floor2.setDepth(40);
         floor3.setDepth(60);
+        floor4.setDepth(61);
+        floor5.setDepth(62);
+        floor6.setDepth(63);
+        floor7.setDepth(64);
+        floor8.setDepth(65);
+
     }
     catch(error)  {
         console.log(error)

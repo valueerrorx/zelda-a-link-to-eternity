@@ -1110,6 +1110,18 @@
                  "width":12,
                  "x":108,
                  "y":1194
+                }, 
+                {
+                 "ellipse":true,
+                 "height":12,
+                 "id":49,
+                 "name":"map5",
+                 "rotation":0,
+                 "type":"mapswitch",
+                 "visible":true,
+                 "width":12,
+                 "x":1185,
+                 "y":639
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -1118,7 +1130,7 @@
          "y":0
         }],
  "nextlayerid":8,
- "nextobjectid":49,
+ "nextobjectid":50,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.7.0",
