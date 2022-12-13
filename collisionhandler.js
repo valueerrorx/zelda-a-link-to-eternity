@@ -1,9 +1,7 @@
 import { config } from "./config.js"
 
 function checkCollisions(game){
-
     game.matter.world.on("collisionstart", (event, bodyA, bodyB) => {
-        
         // handle different mapswitch actions
         if((bodyA.type == "mapswitch" && bodyB.name == "link") || (bodyB.type == "mapswitch" && bodyA.name == "link")) {
            
@@ -32,15 +30,9 @@ function checkCollisions(game){
                 config.linkstatus.y =  linky
             }
 
-
-            if (bodyA.type == "mapswitch"){
-                game.scene.start( bodyA.name )
-            }
-            if (bodyB.type == "mapswitch"){
-                game.scene.start( bodyB.name )
-            }
+            if (bodyA.type == "mapswitch"){ game.scene.start( bodyA.name ) }
+            if (bodyB.type == "mapswitch"){ game.scene.start( bodyB.name ) }
         }
-
     });
 }
 
