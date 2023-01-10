@@ -4,7 +4,7 @@ import { createMap } from "./initmap.js"
 import { createPlayer } from "./player.js"
 import { checkCollisions } from "./collisionhandler.js"
 
-class Map2 {
+class Map3 {
     create(){
         createMap('map3', this)
         
