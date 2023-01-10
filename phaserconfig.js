@@ -14,6 +14,4 @@ let phaserconfig = {
     }
 }
 
-
 export {phaserconfig}
-

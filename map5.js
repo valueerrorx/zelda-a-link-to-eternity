@@ -1,12 +1,15 @@
+ 
+
 import { config } from "./config.js"
 import { playercontrol } from "./control.js"
 import { createMap } from "./initmap.js"
 import { createPlayer } from "./player.js"
 import { checkCollisions } from "./collisionhandler.js"
 
-class Map2 {
+
+class Map5 {
     create(){
-        createMap('map2', this)
+        createMap('map5', this)
         
         createPlayer(this)
         console.log(config.linkstatus)
@@ -21,7 +24,9 @@ class Map2 {
         config.fog = this.add.tileSprite(0, 0, config.map.widthInPixels, config.map.heightInPixels, 'fog').setOrigin(0,0);
         config.fog.setDepth(100);
 
+
         checkCollisions(this)
+ 
 
     }
     update(){
@@ -34,4 +39,20 @@ class Map2 {
     }
 }
 
-export { Map2 }
+
+
+export { Map5 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,4 +1,3 @@
- 
 // globale variablen defineren
 
 let config = {

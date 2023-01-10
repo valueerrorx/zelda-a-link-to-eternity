@@ -1,11 +1,8 @@
- 
-
 import { config } from "./config.js"
 import { playercontrol } from "./control.js"
 import { createMap } from "./initmap.js"
 import { createPlayer } from "./player.js"
 import { checkCollisions } from "./collisionhandler.js"
-
 
 class Map1 {
     create(){
@@ -28,7 +25,6 @@ class Map1 {
 
         checkCollisions(this)
  
-
     }
     update(){
 
@@ -40,20 +36,4 @@ class Map1 {
     }
 }
 
-
-
 export { Map1 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

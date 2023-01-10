@@ -1,6 +1,3 @@
- 
-
-
 import { config } from "./config.js"
 
 function playercontrol(){
@@ -24,6 +21,5 @@ function playercontrol(){
         else if (config.cursors.up.isDown)  {config.link.anims.play('walkaway', true);}
         else {config.link.anims.stop();}
 }
-
 
 export {playercontrol}
