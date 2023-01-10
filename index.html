@@ -32,9 +32,9 @@ import { config } from "./config.js"
 import { Preload } from "./preload.js"
 import { Map1 } from "./map1.js"
 import { Map2 } from "./map2.js"
-import { Map5 } from "./map5.js"
+import { Map3 } from "./map3.js"
 import { Map4 } from "./map4.js"
-
+import { Map5 } from "./map5.js"
 
 
 
@@ -42,9 +42,9 @@ let game = new Phaser.Game(phaserconfig);
 game.scene.add("preload", Preload);
 game.scene.add('map1', Map1);
 game.scene.add('map2', Map2);
-game.scene.add('map5', Map5);
-
+game.scene.add('map3', Map3);
 game.scene.add('map4', Map4);
+game.scene.add('map5', Map5);
 game.scene.start("preload");
 
 </script>

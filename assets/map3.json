@@ -53,7 +53,7 @@
         {
          "draworder":"topdown",
          "id":6,
-         "name":"barriers",
+         "name":"walls",
          "objects":[
                 {
                  "height":0,
@@ -2177,49 +2177,27 @@
                 }, 
                 {
                  "ellipse":true,
-                 "height":0,
+                 "height":21,
                  "id":110,
                  "name":"map6",
                  "rotation":0,
                  "type":"mapswitch",
                  "visible":true,
-                 "width":0,
+                 "width":24,
                  "x":1128,
-                 "y":699
-                }, 
-                {
-                 "height":96,
-                 "id":112,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":9,
-                 "x":684,
-                 "y":72
-                }, 
-                {
-                 "height":96,
-                 "id":115,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":6,
-                 "x":714,
-                 "y":72
+                 "y":696
                 }, 
                 {
                  "ellipse":true,
-                 "height":0,
+                 "height":12,
                  "id":118,
                  "name":"map1",
                  "rotation":0,
                  "type":"mapswitch",
                  "visible":true,
-                 "width":0,
-                 "x":699,
-                 "y":0
+                 "width":15,
+                 "x":696,
+                 "y":-6
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -2228,10 +2206,10 @@
          "y":0
         }],
  "nextlayerid":7,
- "nextobjectid":119,
+ "nextobjectid":120,
  "orientation":"orthogonal",
  "renderorder":"right-down",
- "tiledversion":"1.7.0",
+ "tiledversion":"1.8.0",
  "tileheight":12,
  "tilesets":[
         {
@@ -2249,6 +2227,6 @@
         }],
  "tilewidth":12,
  "type":"map",
- "version":"1.6",
+ "version":"1.8",
  "width":100
 }
