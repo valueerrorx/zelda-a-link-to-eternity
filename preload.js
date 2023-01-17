@@ -10,6 +10,7 @@ class Preload {
         this.load.tilemapTiledJSON('map3', 'assets/map3.json');
         this.load.tilemapTiledJSON('map5', 'assets/map5.json');
         this.load.tilemapTiledJSON('map4', 'assets/map4.json');
+        this.load.tilemapTiledJSON('map6', 'assets/map6.json');
 
         this.load.image('tileset', 'assets/tileset.png');
     }
