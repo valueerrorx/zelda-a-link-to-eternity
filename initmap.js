@@ -43,7 +43,7 @@ function createMap(mapkey, game) {
     }
 
     let walls = config.map.getObjectLayer("walls");
-
+console.log(config.map)
     let points = []
 
     walls.objects.forEach( wall => {

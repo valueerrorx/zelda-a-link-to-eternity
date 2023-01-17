@@ -9,7 +9,7 @@ function createPlayer(game){
 
     config.link = game.matter.add.sprite(config.linkstatus.x, config.linkstatus.y, 'link');
     config.link.setScale(0.2);
-    config.link.setCircle(12);
+    config.link.setCircle(8);
     config.link.setFixedRotation(true);
     config.link.setDepth(25);
     config.link.body.name = "link"
