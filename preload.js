@@ -15,7 +15,7 @@ class Preload {
         this.load.image('tileset', 'assets/tileset.png');
     }
     create(){
-       this.scene.start("map1");
+       this.scene.start("map6");
     }
 }
 
