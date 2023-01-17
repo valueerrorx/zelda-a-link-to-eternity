@@ -2067,8 +2067,6 @@
                  "x":1194,
                  "y":732
                 }],
-         "offsetx":-3,
-         "offsety":3,
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
@@ -2079,7 +2077,7 @@
  "nextobjectid":132,
  "orientation":"orthogonal",
  "renderorder":"right-down",
- "tiledversion":"1.7.0",
+ "tiledversion":"1.8.0",
  "tileheight":12,
  "tilesets":[
         {
@@ -2097,6 +2095,6 @@
         }],
  "tilewidth":12,
  "type":"map",
- "version":"1.6",
+ "version":"1.8",
  "width":100
 }
