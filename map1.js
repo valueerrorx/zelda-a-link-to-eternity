@@ -10,7 +10,7 @@ class Map1 {
       
         createPlayer(this)
         
-        console.log(config.linkstatus)
+        
 
         this.matter.world.setBounds(0, 0, config.map.widthInPixels, config.map.heightInPixels);
         config.cursors = this.input.keyboard.createCursorKeys();

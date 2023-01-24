@@ -13,6 +13,32 @@ function createPlayer(game){
     config.link.setFixedRotation(true);
     config.link.setDepth(25);
     config.link.body.name = "link"
+
+
+   
+      
+    game.input.keyboard.on('keydown-A', function (event) {
+        let boomerang = game.matter.add.sprite(config.link.x, config.link.y, 'boomerang');
+        boomerang.setScale(0.05)
+        boomerang.setDepth(100)
+        if (boomerang){
+                
+                boomerang.exists = true;
+                boomerang.lifespan=1500;  //kill after 2500 ms 
+                boomerang.setCircle(6);
+                
+              
+               
+                boomerang.setVelocityX(10)
+                //boomerang.setVelocityY(Math.sin(boomerang.angle) * 1)
+        }
+ 
+     });
+
+
+
+
+   
    
 }
 
