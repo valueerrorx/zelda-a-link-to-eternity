@@ -17,7 +17,7 @@ function createPlayer(game){
 
    
       
-    game.input.keyboard.on('keydown-A', function (event) {
+    game.input.on('pointerdown', function (pointer) {
 
       
 
@@ -26,93 +26,34 @@ function createPlayer(game){
         boomerang.setDepth(100)
         boomerang.setCircle(6);
         
+     
 
-        if (config.link.frame.name >= 20 && config.link.frame.name <= 29    ) { //up
-            console.log("up")
-            game.tweens.add({
-                targets: boomerang,
-                x: 0,
-                y: -400,
-                ease: 'Power1',
-                duration: 2000,
-                angle:120,
-                yoyo: true,
-                repeat: 0,
-                onStart: function () { console.log('onStart');  },
-                onComplete: function () { console.log('onComplete');  },
-                onYoyo: function () { console.log('onYoyo');  },
-                onRepeat: function () { console.log('onRepeat'); },
-            });
+            if (pointer.rightButtonDown()){
+                    console.log(config.camera)
 
-
-        }
-        else if (config.link.frame.name >= 0 && config.link.frame.name <= 9    ) { //down
-            console.log("down")
-            game.tweens.add({
-                targets: boomerang,
-                x: 0,
-                y: 400,
-                ease: 'Power1',
-                duration: 2000,
-                angle:120,
-                yoyo: true,
-                repeat: 0,
-                onStart: function () { console.log('onStart');  },
-                onComplete: function () { console.log('onComplete');  },
-                onYoyo: function () { console.log('onYoyo');  },
-                onRepeat: function () { console.log('onRepeat'); },
-            });
-        }
-        else if (config.link.flipX){ //rechts
-            console.log("right")
-            game.tweens.add({
-                targets: boomerang,
-                x: +400,
-                y: 0,
-                ease: 'Power1',
-                duration: 2000,
-                angle:120,
-                yoyo: true,
-                repeat: 0,
-                onStart: function () { console.log('onStart');  },
-                onComplete: function () { console.log('onComplete');  },
-                onYoyo: function () { console.log('onYoyo');  },
-                onRepeat: function () { console.log('onRepeat'); },
-            });
-        }
-        else if (!config.link.flipX){ //links)
-            console.log("right")
-            game.tweens.add({
-                targets: boomerang,
-                x: -400,
-                y: 0,
-                ease: 'Power1',
-                duration: 2000,
-                angle:120,
-                yoyo: true,
-                repeat: 0,
-                onStart: function () { console.log('onStart');  },
-                onComplete: function () { console.log('onComplete');  },
-                onYoyo: function () { console.log('onYoyo');  },
-                onRepeat: function () { console.log('onRepeat'); },
-            });
-            
-        }
-
-
-
-               
-               
- 
-     });
+                console.log("right")
+                game.tweens.add({
+                    targets: boomerang,
+                    x: pointer.x+config.camera.scrollX,
+                    y: pointer.y+config.camera.scrollY,
+                    ease: 'Power1',
+                    duration: 2000,
+                    angle:120,
+                    yoyo: true,
+                    repeat: 0,
+                    onStart: function () { console.log('onStart');  },
+                    onComplete: function () { console.log('onComplete'); boomerang.destroy() },
+                    onYoyo: function () { console.log('onYoyo');  },
+                    onRepeat: function () { console.log('onRepeat'); },
+                });
+            }
+              
+    });
 }
 
 
       
         
-
-
-
 
 
 export {createPlayer}
