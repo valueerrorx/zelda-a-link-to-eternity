@@ -43,14 +43,14 @@ function createMap(mapkey, game) {
     }
 
     let walls = config.map.getObjectLayer("walls");
-console.log(config.map)
+//console.log(config.map)
     let points = []
 
     walls.objects.forEach( wall => {
         if (wall.ellipse === true){
           
             if (wall.type === "mapswitch"){
-                console.log(wall.name)
+                //console.log(wall.name)
                 let wallobject = game.matter.add.circle(wall.x+wall.width/2, wall.y+wall.height/2, wall.width/2);
                
                 wallobject.type = wall.type

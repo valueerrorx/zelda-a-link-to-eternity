@@ -105,34 +105,6 @@
                 }, 
                 {
                  "height":0,
-                 "id":3,
-                 "name":"",
-                 "polygon":[
-                        {
-                         "x":0,
-                         "y":0
-                        }, 
-                        {
-                         "x":48,
-                         "y":0
-                        }, 
-                        {
-                         "x":48,
-                         "y":54
-                        }, 
-                        {
-                         "x":0,
-                         "y":54
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":252,
-                 "y":774
-                }, 
-                {
-                 "height":0,
                  "id":4,
                  "name":"",
                  "polygon":[
@@ -1292,72 +1264,6 @@
                  "y":345
                 }, 
                 {
-                 "height":51,
-                 "id":157,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":48,
-                 "x":72,
-                 "y":222
-                }, 
-                {
-                 "height":51,
-                 "id":158,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":48,
-                 "x":216,
-                 "y":270
-                }, 
-                {
-                 "height":36,
-                 "id":159,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":42,
-                 "x":267,
-                 "y":276
-                }, 
-                {
-                 "height":51,
-                 "id":160,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":48,
-                 "x":108,
-                 "y":357
-                }, 
-                {
-                 "height":48,
-                 "id":161,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":24,
-                 "x":0,
-                 "y":357
-                }, 
-                {
-                 "height":54,
-                 "id":162,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":36,
-                 "x":0,
-                 "y":450
-                }, 
-                {
                  "ellipse":true,
                  "height":15,
                  "id":163,
@@ -1871,28 +1777,6 @@
                  "visible":true,
                  "width":18,
                  "x":327,
-                 "y":51
-                }, 
-                {
-                 "height":57,
-                 "id":207,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":45,
-                 "x":351,
-                 "y":39
-                }, 
-                {
-                 "height":33,
-                 "id":208,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":24,
-                 "x":396,
                  "y":51
                 }, 
                 {
@@ -3053,7 +2937,7 @@
  "nextobjectid":246,
  "orientation":"orthogonal",
  "renderorder":"right-down",
- "tiledversion":"1.7.0",
+ "tiledversion":"1.8.0",
  "tileheight":12,
  "tilesets":[
         {
@@ -3071,6 +2955,6 @@
         }],
  "tilewidth":12,
  "type":"map",
- "version":"1.6",
+ "version":"1.8",
  "width":100
 }

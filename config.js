@@ -6,8 +6,8 @@ let config = {
     cursors: null,
     camera: null,
     fog : null,
-    map: null
-
+    map: null,
+    boomerang: null
 }
 
 export { config }
