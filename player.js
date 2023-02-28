@@ -17,29 +17,43 @@ function createPlayer(game){
 
    
       
-    game.input.keyboard.on('keydown-A', function (event) {
+    game.input.on('pointerdown', function (pointer) {
+
+      
+
         let boomerang = game.matter.add.sprite(config.link.x, config.link.y, 'boomerang');
         boomerang.setScale(0.05)
         boomerang.setDepth(100)
-        if (boomerang){
-                
-                boomerang.exists = true;
-                boomerang.lifespan=1500;  //kill after 2500 ms 
-                boomerang.setCircle(6);
-                
+        boomerang.setCircle(6);
+        
+     
+
+            if (pointer.rightButtonDown()){
+                    console.log(config.camera)
+
+                console.log("right")
+                game.tweens.add({
+                    targets: boomerang,
+                    x: pointer.x+config.camera.scrollX,
+                    y: pointer.y+config.camera.scrollY,
+                    ease: 'Power1',
+                    duration: 2000,
+                    angle:120,
+                    yoyo: true,
+                    repeat: 0,
+                    onStart: function () { console.log('onStart');  },
+                    onComplete: function () { console.log('onComplete'); boomerang.destroy() },
+                    onYoyo: function () { console.log('onYoyo');  },
+                    onRepeat: function () { console.log('onRepeat'); },
+                });
+            }
               
-               
-                boomerang.setVelocityX(10)
-                //boomerang.setVelocityY(Math.sin(boomerang.angle) * 1)
-        }
- 
-     });
-
-
-
-
-   
-   
+    });
 }
+
+
+      
+        
+
 
 export {createPlayer}

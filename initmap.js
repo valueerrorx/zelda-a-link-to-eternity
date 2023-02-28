@@ -1,7 +1,7 @@
 import { config } from "./config.js"
 
 function createMap(mapkey, game) {
-    
+    game.input.mouse.disableContextMenu();
     config.map = game.make.tilemap({ key: mapkey });
     let tiles = config.map.addTilesetImage('tileset');
 
