@@ -4,10 +4,13 @@ function playercontrol(){
         if (config.cursors.left.isDown)    {
             config.link.setVelocityX(-3);
             config.link.setFlipX(false);
+           
+            
         }
         else if (config.cursors.right.isDown)  {
             config.link.setVelocityX(3);
             config.link.setFlipX(true);
+           
         }
         else  { config.link.setVelocityX(0);  }
 
@@ -20,6 +23,9 @@ function playercontrol(){
         else if (config.cursors.down.isDown )  {config.link.anims.play('walktowards', true);}
         else if (config.cursors.up.isDown)  {config.link.anims.play('walkaway', true);}
         else {config.link.anims.stop();}
+
+
+
 }
 
 export {playercontrol}

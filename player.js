@@ -13,7 +13,47 @@ function createPlayer(game){
     config.link.setFixedRotation(true);
     config.link.setDepth(25);
     config.link.body.name = "link"
+
+
    
+      
+    game.input.on('pointerdown', function (pointer) {
+
+      
+
+        let boomerang = game.matter.add.sprite(config.link.x, config.link.y, 'boomerang');
+        boomerang.setScale(0.05)
+        boomerang.setDepth(100)
+        boomerang.setCircle(6);
+        
+     
+
+            if (pointer.rightButtonDown()){
+                    console.log(config.camera)
+
+                console.log("right")
+                game.tweens.add({
+                    targets: boomerang,
+                    x: pointer.x+config.camera.scrollX,
+                    y: pointer.y+config.camera.scrollY,
+                    ease: 'Power1',
+                    duration: 2000,
+                    angle:120,
+                    yoyo: true,
+                    repeat: 0,
+                    onStart: function () { console.log('onStart');  },
+                    onComplete: function () { console.log('onComplete'); boomerang.destroy() },
+                    onYoyo: function () { console.log('onYoyo');  },
+                    onRepeat: function () { console.log('onRepeat'); },
+                });
+            }
+              
+    });
 }
+
+
+      
+        
+
 
 export {createPlayer}

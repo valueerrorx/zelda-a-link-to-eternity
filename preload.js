@@ -4,6 +4,7 @@ class Preload {
         this.load.image('fog', 'assets/fog.png');
         this.load.image('tree', 'assets/tree.png');
         this.load.spritesheet('link', 'assets/zeldawalk.png', { frameWidth: 120, frameHeight: 130});
+        this.load.image('boomerang','assets/boomerang.png')
 
         this.load.tilemapTiledJSON('map1', 'assets/map1.json');
         this.load.tilemapTiledJSON('map2', 'assets/map2.json');
@@ -15,7 +16,7 @@ class Preload {
         this.load.image('tileset', 'assets/tileset.png');
     }
     create(){
-       this.scene.start("map6");
+       this.scene.start("map1");
     }
 }
 
