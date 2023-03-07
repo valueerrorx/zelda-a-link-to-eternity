@@ -1,15 +1,18 @@
 import { config } from "./config.js"
-import { playercontrol } from "./control.js"
+import { playercontrol, soldiercontrol } from "./control.js"
 import { createMap } from "./initmap.js"
 import { createPlayer } from "./player.js"
 import { checkCollisions } from "./collisionhandler.js"
+import { createSoldier } from "./soldier.js"
 
 class Map1 {
     create(){
         createMap("map1", this)
       
+        config.enemy = createSoldier(this)
+
         createPlayer(this)
-        
+       
         
 
         this.matter.world.setBounds(0, 0, config.map.widthInPixels, config.map.heightInPixels);
@@ -27,13 +30,12 @@ class Map1 {
  
     }
     update(){
-
         playercontrol()
-
+        soldiercontrol()
         config.fog.x = config.camera.scrollX*0.2;
         config.fog.y = config.camera.scrollY*0.2;
-
     }
 }
+
 
 export { Map1 }

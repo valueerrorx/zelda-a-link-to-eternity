@@ -37,6 +37,8 @@ function createMap(mapkey, game) {
         floor7.setDepth(64);
         floor8.setDepth(65);
 
+
+       
     }
     catch(error)  {
         console.log(error)
@@ -56,6 +58,7 @@ function createMap(mapkey, game) {
                 wallobject.type = wall.type
                 wallobject.name = wall.name
                 wallobject.isStatic = true
+                
             }
             else {  // this is a normal hitbox of some kind of blocking object 
                 let wallobject = game.matter.add.circle(wall.x+wall.width/2, wall.y+wall.height/2, wall.width/2);

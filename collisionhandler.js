@@ -2,6 +2,16 @@ import { config } from "./config.js"
 
 function checkCollisions(game){
     game.matter.world.on("collisionstart", (event, bodyA, bodyB) => {
+
+
+        // if((bodyA.name == "boom" || bodyB.name == "boom") && bodyA.name !== "link" && bodyB.name !== "link" ) {
+            
+        //     if (bodyA.name == "boom") {console.log(bodyA );  bodyA.destroy(true);}
+        //     if (bodyB.name == "boom") {console.log(bodyB );  bodyB.destroy(true);}
+        // }
+
+
+
         // handle different mapswitch actions
         if((bodyA.type == "mapswitch" && bodyB.name == "link") || (bodyB.type == "mapswitch" && bodyA.name == "link")) {
            

@@ -13,7 +13,8 @@ function createPlayer(game){
     config.link.setFixedRotation(true);
     config.link.setDepth(25);
     config.link.body.name = "link"
-
+    config.link.setCollisionGroup(-1)
+  
 
    
       
@@ -23,7 +24,19 @@ function createPlayer(game){
             boomerang.setScale(0.05)
             boomerang.setDepth(100)
             boomerang.setCircle(6);
-            game.tweens.add({
+            boomerang.body.name = "boom"
+            boomerang.setCollisionGroup(-1)
+           
+           
+
+            boomerang.setOnCollide((event)=>{
+                if (event.bodyA.name === "link" || event.bodyB.name === "link") {return}
+                boomerang.tween.stop()
+                boomerang.destroy()
+
+            })
+
+            boomerang.tween = game.tweens.add({
                 targets: boomerang,
                 x: pointer.x+config.camera.scrollX,
                 y: pointer.y+config.camera.scrollY,
@@ -32,10 +45,10 @@ function createPlayer(game){
                 angle:120,
                 yoyo: true,
                 repeat: 0,
-                onStart: function () { console.log('onStart');  },
-                onComplete: function () { console.log('onComplete'); boomerang.destroy() },
-                onYoyo: function () { console.log('onYoyo');  },
-                onRepeat: function () { console.log('onRepeat'); },
+                // onStart: function () { console.log('onStart');  },
+                onComplete: function () { if(boomerang) {boomerang.destroy()} },
+                // onYoyo: function () { console.log('onYoyo');  },
+                // onRepeat: function () { console.log('onRepeat'); },
             });
         }   
     });
