@@ -36,7 +36,7 @@ import { Map3 } from "./map3.js"
 import { Map4 } from "./map4.js"
 import { Map6 } from "./map6.js"
 import { Map5 } from "./map5.js"
-
+import { gameover } from "./gameover.js"
 
 
 let game = new Phaser.Game(phaserconfig);
@@ -48,6 +48,7 @@ game.scene.add('map6', Map6);
 game.scene.add('map3', Map3);
 game.scene.add('map4', Map4);
 game.scene.add('map5', Map5);
+game.scene.add('gameover', gameover);
 game.scene.start("preload");
 
 </script>

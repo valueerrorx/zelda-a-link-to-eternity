@@ -27,17 +27,19 @@ function playercontrol(){
 
 function soldiercontrol(){
 
+
+    if (config.soldier.body ){
+      
     var angle = Math.atan2(config.link.y - config.soldier.y,  config.link.x - config.soldier.x)
 
     config.soldier.setVelocityX(Math.cos(angle) )
     config.soldier.setVelocityY(Math.sin(angle) )
 
-    if (angle > 2.5 || angle < -1.5) { config.soldier.anims.play('soldierwalkleft', true)  }
+    if (angle > 2.5 || angle < -1.8) { config.soldier.anims.play('soldierwalkleft', true)  }
     if (angle < 2.5 && angle > 1) { config.soldier.anims.play('soldierwalktowards' , true) }
     if (angle < 1 && angle > -0.5) { config.soldier.anims.play('soldierwalkright' , true) }
-    if (angle < -0.5 && angle > -1.5) { config.soldier.anims.play('soldierwalkaway' , true) }
-
-
+    if (angle < -0.5 && angle > -1.8) { config.soldier.anims.play('soldierwalkaway' , true) }
+    }
 }
 
 

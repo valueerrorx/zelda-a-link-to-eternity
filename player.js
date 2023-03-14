@@ -14,8 +14,12 @@ function createPlayer(game){
     config.link.setDepth(25);
     config.link.body.name = "link"
     config.link.setCollisionGroup(-1)
-  
-
+    config.link.setOnCollide((event)=>{
+        if (event.bodyA.name === "soldier" || event.bodyB.name === "soldier") {
+            
+            game.scene.start('gameover')
+        }
+    })
    
       
     game.input.on('pointerdown', function (pointer) {
@@ -33,6 +37,14 @@ function createPlayer(game){
                 if (event.bodyA.name === "link" || event.bodyB.name === "link") {return}
                 boomerang.tween.stop()
                 boomerang.destroy()
+
+
+                
+                if (event.bodyA.name === "soldier" || event.bodyB.name === "soldier") {
+                    let soldierbody = (event.bodyA.name === "soldier") ? event.bodyA : event.bodyB;
+                    soldierbody.health -=1
+                    if (soldierbody.health < 0) { config.soldier.destroy();  }
+                }
 
             })
 

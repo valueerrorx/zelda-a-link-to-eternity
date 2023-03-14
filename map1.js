@@ -30,8 +30,11 @@ class Map1 {
  
     }
     update(){
-        playercontrol()
-        soldiercontrol()
+        if (config.link.body){ playercontrol() }
+        if (config.link.body){ soldiercontrol() }
+
+
+        
         config.fog.x = config.camera.scrollX*0.2;
         config.fog.y = config.camera.scrollY*0.2;
     }

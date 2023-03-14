@@ -3,6 +3,7 @@ import { config } from "./config.js"
 function checkCollisions(game){
     game.matter.world.on("collisionstart", (event, bodyA, bodyB) => {
 
+            if (!config.link.body) {return }
 
         // if((bodyA.name == "boom" || bodyB.name == "boom") && bodyA.name !== "link" && bodyB.name !== "link" ) {
             

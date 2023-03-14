@@ -11,6 +11,7 @@ function createSoldier(game){
     config.soldier.setFixedRotation(true);
     config.soldier.setDepth(25);
     config.soldier.body.name = "soldier"
+    config.soldier.body.health = 4
 }
 
 
